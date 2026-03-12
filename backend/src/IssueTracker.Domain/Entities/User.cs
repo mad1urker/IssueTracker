@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Domain.Entities
 {
-    internal class User
+    public class User
     {
         public int Id { get; }
         public string? Name { get; }
