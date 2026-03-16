@@ -9,7 +9,7 @@ namespace IssueTracker.Domain.Entities
 {
     public class User
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public string? Name { get; }
         public string? Email { get; }
         public string? PasswordHash { get; }

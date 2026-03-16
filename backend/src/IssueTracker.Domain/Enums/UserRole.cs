@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Domain.Enums
 {
-    internal enum UserRole
+    public enum UserRole
     {
         Admin,
         User
