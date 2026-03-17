@@ -1,7 +1,7 @@
 ﻿using IssueTracker.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace IssueTracker.Infrastructure;
+namespace IssueTracker.Infrastructure.Persistence;
 
 public class AppDbContext : DbContext
 {
@@ -11,6 +11,12 @@ public class AppDbContext : DbContext
         : base(options)
     {
 
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        base.OnModelCreating(modelBuilder);
     }
 
 }
