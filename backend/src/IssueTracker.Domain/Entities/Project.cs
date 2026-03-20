@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Domain.Entities
 {
-    internal class Project
+    public class Project
     {
-        public int Id { get; }
-        public string? Name { get; }
-        public string? Description { get; }
-        public DateTime CreatedAtUtc { get; }
-        public DateTime UpdatedAtUtc { get; }
+        public required int Id { get; set; }
+        public required string? Name { get; set; }
+        public required string? Description { get; set; }
+        public required DateTime CreatedAtUtc { get; set; }
+        public required DateTime UpdatedAtUtc { get; set; }
     }
 }
 

@@ -9,12 +9,12 @@ namespace IssueTracker.Domain.Entities
 {
     public class User
     {
-        public int Id { get; private set; }
-        public string? Name { get; private set; }
-        public int? Age { get; private set; }
-        public string? Email { get; private set; }
-        public string? PasswordHash { get; private set; }
-        public UserRole Role { get; private set;}
-        public DateTime CreatedAtUtc { get; private set; }
+        public required int Id { get;set; }
+        public required string? Name { get; set; }
+        public required int? Age { get; set; }
+        public required string? Email { get; set; }
+        public required string? PasswordHash { get; set; }
+        public required UserRole Role { get; set;}
+        public required DateTime CreatedAtUtc { get; set; }
     }
 }
