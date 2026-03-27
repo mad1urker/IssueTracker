@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Domain.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
-        public int Id { get; private set; }
-        public string? Name { get; private set; }
-        public int? Age { get; private set; }
-        public string? Email { get; private set; }
-        public string? PasswordHash { get; private set; }
-        public UserRole Role { get; private set;}
-        public DateTime CreatedAtUtc { get; private set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+
+        ICollection<TaskItem> TaskItems { get; set; } = new List<TaskItem>() = [];
+        ICollection<UserProject> UserProjects { get; set; } = new List<UserProject>() = [];  
     }
 }
