@@ -1,4 +1,4 @@
-﻿using IssueTracker.Domain.Enums;
+﻿using IssueTracker.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace IssueTracker.Domain.Entities
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
 
-        ICollection<TaskItem> TaskItems { get; set; } = new List<TaskItem>() = [];
-        ICollection<UserProject> UserProjects { get; set; } = new List<UserProject>() = [];  
+        ICollection<TaskItem> TaskItems { get; set; } = [];
+        ICollection<UserProject> UserProjects { get; set; } = [];  
     }
 }

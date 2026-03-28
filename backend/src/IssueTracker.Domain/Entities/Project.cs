@@ -11,8 +11,8 @@ namespace IssueTracker.Domain.Entities
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
 
-        ICollection<UserProject> UserProjects { get; set; } = new List<UserProject>() = [];  
-        ICollection<TaskItem> TaskItems { get; set; } = new List<TaskItem>() = [];  
+        ICollection<UserProject> UserProjects { get; set; } = [];  
+        ICollection<TaskItem> TaskItems { get; set; } = [];  
     }
 }
 

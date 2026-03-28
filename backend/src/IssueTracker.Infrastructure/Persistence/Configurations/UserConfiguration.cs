@@ -13,8 +13,6 @@ namespace IssueTracker.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("Users");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
@@ -25,8 +23,6 @@ namespace IssueTracker.Infrastructure.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.Property(x => x.Age)
-                .IsRequired();
         }
     }
 }
