@@ -9,16 +9,11 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Infrastructure.Persistence.Configurations
 {
-    internal class UserConfiguration : IEntityTypeConfiguration<User>
+    internal class ProjectConfiguration : IEntityTypeConfiguration<Project>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<Project> builder)
         {
-            builder.Property(x => x.Name)
-                .IsRequired();
-
-            builder.Property(x => x.Email)
-                .IsRequired();
-
+            builder.Property(e => e.Name).IsRequired();
         }
     }
 }

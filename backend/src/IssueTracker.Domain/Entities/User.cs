@@ -12,7 +12,7 @@ namespace IssueTracker.Domain.Entities
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
 
-        ICollection<TaskItem> TaskItems { get; set; } = [];
-        ICollection<UserProject> UserProjects { get; set; } = [];  
+        public ICollection<TaskItem> TaskItems { get; set; } = [];
+        public ICollection<UserProject> UserProjects { get; set; } = [];  
     }
 }
