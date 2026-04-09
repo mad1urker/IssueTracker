@@ -24,9 +24,9 @@ namespace IssueTracker.Infrastructure.Persistence.Configurations
                 .HasForeignKey(t => t.ProjectId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(t => t.User)
+            builder.HasOne(t => t.Assigned)
                 .WithMany(u => u.TaskItems)
-                .HasForeignKey(t => t.UserId)
+                .HasForeignKey(t => t.AssignedId)
                 .OnDelete(DeleteBehavior.SetNull);
    
 

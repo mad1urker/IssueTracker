@@ -1,6 +1,6 @@
 ﻿namespace IssueTracker.Application;
 
-public class Class1
+public static class AssemblyReference
 {
     
 }

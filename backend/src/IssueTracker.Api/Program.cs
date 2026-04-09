@@ -1,13 +1,21 @@
 using IssueTracker.Infrastructure;
+using Mapster;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Конфигурация mapster
+var typeAdapterConfig = TypeAdapterConfig.GlobalSettings;
+
+typeAdapterConfig.Scan(
+    typeof(Program).Assembly,
+    typeof(IssueTracker.Application.AssemblyReference).Assembly
+    );
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 // builder.Services.AddOpenApi();
 
 builder.Services.AddInfrastructure(builder.Configuration);
-
 
 var app = builder.Build();
 
