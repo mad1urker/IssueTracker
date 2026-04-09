@@ -29,7 +29,7 @@ namespace IssueTracker.Infrastructure.Repositories
         public async Task DeleteAsync(T entity)
             => _dbSet.Remove(entity);
 
-        public Task DeleteAsync(int id)
+        public Task DeleteAsync(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -37,7 +37,7 @@ namespace IssueTracker.Infrastructure.Repositories
         public async Task<IEnumerable<T>> GetAllAsync()
             => await _dbSet.ToListAsync();
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(Guid id)
 #pragma warning disable CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
             => await _dbSet.FindAsync(id);
 #pragma warning restore CS8603 // Возможно, возврат ссылки, допускающей значение NULL.

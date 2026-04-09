@@ -31,25 +31,43 @@ namespace IssueTracker.Application.Services
 
             return taskItem.Adapt<TaskItemDto>();
         }
-
-        public Task DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
+            var task = await _taskRepository.GetByIdAsync(id);
 
+            if (task is null)
+                return false;
+
+            await _taskRepository.DeleteAsync(id);
+            await _taskRepository.SaveSaveChangesAsync();
+
+            return true;
+        }
         public async Task<IEnumerable<TaskItemDto>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var tasks = await _taskRepository.GetAllAsync();
+            return tasks.Select(x => x.Adapt<TaskItemDto>());
         }
-
-        public Task<TaskItemDto> GetByIdAsync(Guid id)
+        public async Task<TaskItemDto> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var task = await _taskRepository.GetByIdAsync(id);
+            return task.Adapt<TaskItemDto>();
         }
-
-        public Task<TaskItemDto> UpdateAsync(Guid id, CreateTaskDto updateTaskDto)
+        public async Task<TaskItemDto?> UpdateAsync(Guid id, UpdateTaskDto updateTaskDto)
         {
-            throw new NotImplementedException();
+            var task = await _taskRepository.GetByIdAsync(id);
+
+            if (task is null)
+                return null;
+
+            task.Title = updateTaskDto.Title;
+            task.Description = updateTaskDto.Description;
+            task.Status = updateTaskDto.Status;
+            task.AssignedId = updateTaskDto.AssignedId;
+
+            await _taskRepository.SaveSaveChangesAsync();
+
+            return task.Adapt<TaskItemDto>();
         }
     }
 }

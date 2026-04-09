@@ -12,7 +12,7 @@ namespace IssueTracker.Application.Services.Interfaces
         Task<TaskItemDto> GetByIdAsync(Guid id);
         Task<IEnumerable<TaskItemDto>> GetAllAsync();
         Task<TaskItemDto> CreateAsync(CreateTaskDto createTaskDto);
-        Task<TaskItemDto> UpdateAsync(Guid id, CreateTaskDto updateTaskDto);
-        Task DeleteAsync(Guid id);
+        Task<TaskItemDto> UpdateAsync(Guid id, UpdateTaskDto updateTaskDto);
+        Task<bool> DeleteAsync(Guid id);
     }
 }

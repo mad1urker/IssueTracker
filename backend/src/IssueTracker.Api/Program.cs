@@ -1,7 +1,20 @@
+using IssueTracker.Application.Interfaces.Repositories;
+using IssueTracker.Application.Services;
+using IssueTracker.Application.Services.Interfaces;
 using IssueTracker.Infrastructure;
+using IssueTracker.Infrastructure.Repositories;
 using Mapster;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped(typeof(Repository<>), typeof(Repository<>));
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 //Конфигурация mapster
 var typeAdapterConfig = TypeAdapterConfig.GlobalSettings;
@@ -23,7 +36,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    //app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
